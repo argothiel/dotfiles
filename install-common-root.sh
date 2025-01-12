@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
 chmod +x nvim.appimage &&
