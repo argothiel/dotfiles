@@ -1,0 +1,12 @@
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias gitgr='date "+%a %b %d %T" && git log --graph --full-history --max-count=35 --all --color --pretty=tformat:"%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cd%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08) %C(bold blue)<%an>%C(reset)" --abbrev-commit'
+alias gitgrM='gitgr --max-count=10000'
+alias vimpager='nvim -R -'
