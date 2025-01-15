@@ -92,6 +92,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 eval $(ssh-agent)
 
 test ~/.shrc && source ~/.shrc
