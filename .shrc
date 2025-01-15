@@ -1,0 +1,7 @@
+test -f ~/.sh_paths && source ~/.sh_paths
+test -f ~/.sh_aliases && source ~/.sh_aliases
+test -f ~/.sh_secrets && source ~/.sh_secrets
+
+ssh-add
+
+test -f ~/.shrc.local && source ~/.shrc.local
