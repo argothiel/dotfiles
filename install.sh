@@ -5,7 +5,7 @@ cd "$(dirname $0)"
 . /etc/os-release
 
 case $ID in
-  ubuntu) su -c ./install-ubuntu-root.sh
+  ubuntu) ./install-ubuntu.sh
     ;;
 
   arch) echo "This is Arch Linux!"
@@ -19,3 +19,4 @@ case $ID in
 esac
 
 su -c ./install-common-root.sh
+
