@@ -20,5 +20,7 @@ alias cdProject="cd $(getRoot) 2>/dev/null || cd"
 
 alias gitgr='date "+%a %b %d %T" && git log --graph --full-history --date=format-local:"%a %d %b %H:%M:%S" --max-count=35 --all --color --pretty=tformat:"%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cd) %C(bold blue)<%an>%C(reset)" --abbrev-commit'
 alias gitgrM='gitgr --max-count=10000'
-alias vimpager='nvim -R -'
-alias vimdiff='nvim -d'
+abbr nv nvim
+abbr nvp 'nvim -R -'
+abbr nvd 'nvim -d'
+
