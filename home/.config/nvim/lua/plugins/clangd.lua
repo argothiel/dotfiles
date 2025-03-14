@@ -45,6 +45,7 @@ local function set_compile_commands_dir(opts)
   vim.cmd('LspRestart')
 end
 
+-- TODO: Switch to neoconf.nvim
 vim.api.nvim_create_user_command('SetCcDir', set_compile_commands_dir, { nargs = 1, complete = 'dir' })
 
 return {
