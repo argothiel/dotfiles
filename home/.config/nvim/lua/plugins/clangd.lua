@@ -62,7 +62,7 @@ return {
           '--background-index',
           '--all-scopes-completion',
           '--clang-tidy',
-          '--header-insertion=iwyu',
+          '--header-insertion=never',
           '--pretty',
           '--pch-storage=memory',
           '--malloc-trim',
@@ -86,6 +86,9 @@ return {
             set_cc_dir_flag(new_config.cmd, compile_commands_dir)
           end
         end,
+        capabilities = {
+          textDocument = { completion = { completionItem = { snippetSupport = false } } },
+        },
       },
     },
   },
