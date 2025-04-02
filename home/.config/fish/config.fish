@@ -1,5 +1,5 @@
 if not status is-interactive
-	exit
+    exit 0
 end
 
 if test -f ~/.sh_secrets.local
@@ -8,10 +8,6 @@ end
 
 alias ls='ls --color=auto'
 
-#unalias vim 2>/dev/null
-#set VIM $(which vim)
-#alias vi="$VIM"
-#alias vim='nvim'
 alias ll='ls -l'
 
 alias cd..='cd ..'
@@ -23,4 +19,3 @@ alias gitgrM='gitgr --max-count=10000'
 abbr nv nvim
 abbr nvp 'nvim -R -'
 abbr nvd 'nvim -d'
-
