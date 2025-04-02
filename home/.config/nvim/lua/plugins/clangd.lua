@@ -1,21 +1,6 @@
 local util = require('lspconfig.util')
 local cc_flag = '--compile-commands-dir='
 
-local function set_cc_dir_flag(cmd_table, compile_commands_dir)
-  assert(type(cmd_table) == 'table')
-  assert(type(compile_commands_dir) == 'string')
-
-  -- Look for an existing compile-commands-dir parameter and update it
-  for i, param in ipairs(cmd_table) do
-    -- If param starts with flag
-    if param:sub(1, #cc_flag) == cc_flag then
-      cmd_table[i] = cc_flag .. compile_commands_dir
-      return
-    end
-  end
-  table.insert(cmd_table, cc_flag .. compile_commands_dir)
-end
-
 local function get_default_cc_dir(root_dir)
   assert(root_dir == nil or type(root_dir) == 'string')
 
@@ -37,11 +22,26 @@ local function get_default_cc_dir(root_dir)
   return compile_commands_dir
 end
 
+local function update_cc_dir_flag(cmd_table, compile_commands_dir)
+  assert(type(cmd_table) == 'table')
+  assert(type(compile_commands_dir) == 'string')
+
+  -- Look for an existing compile-commands-dir parameter and update it
+  for i, param in ipairs(cmd_table) do
+    -- If param starts with flag
+    if param:sub(1, #cc_flag) == cc_flag then
+      cmd_table[i] = cc_flag .. compile_commands_dir
+      return
+    end
+  end
+  table.insert(cmd_table, cc_flag .. compile_commands_dir)
+end
+
 local function set_compile_commands_dir(opts)
   local clangd = require('lspconfig.configs')['clangd']
   local cmd_table = clangd.cmd
 
-  set_cc_dir_flag(cmd_table, opts.args)
+  update_cc_dir_flag(cmd_table, opts.args)
   vim.cmd('LspRestart')
 end
 
@@ -51,6 +51,7 @@ vim.api.nvim_create_user_command('SetCcDir', set_compile_commands_dir, { nargs =
 return {
   'neovim/nvim-lspconfig',
   opts = {
+    inlay_hints = { enabled = false },
     servers = {
       clangd = {
         cmd = {
@@ -83,11 +84,22 @@ return {
         on_new_config = function(new_config, new_root_dir)
           local compile_commands_dir = get_default_cc_dir(new_root_dir)
           if compile_commands_dir then
-            set_cc_dir_flag(new_config.cmd, compile_commands_dir)
+            update_cc_dir_flag(new_config.cmd, compile_commands_dir)
           end
         end,
         capabilities = {
           textDocument = { completion = { completionItem = { snippetSupport = false } } },
+        },
+      },
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                maxLineLength = 100,
+              },
+            },
+          },
         },
       },
     },
