@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt update
 
 sudo ln -fs /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
