@@ -4,3 +4,5 @@ require('config.lazy')
 vim.cmd('colorscheme catppuccin')
 
 vim.diagnostic.config({ update_in_insert = true })
+
+vim.o.exrc = true
