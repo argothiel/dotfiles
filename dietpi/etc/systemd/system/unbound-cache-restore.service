@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore Unbound DNS cache
+After=unbound.service
+Requires=unbound.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/unbound/cache-restore.sh
+
+[Install]
+WantedBy=multi-user.target
