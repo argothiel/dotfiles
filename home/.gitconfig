@@ -1,44 +1,48 @@
 [color]
-	ui = auto
+  ui = auto
 
 [core]
-	pager = delta
+  pager = delta
+  excludesfile = ~/.gitignore
+
+[include]
+  path = ~/.gitconfig.local
 
 [interactive]
-	diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only --features=interactive
 
 [delta]
-	features = decorations
+  features = decorations
 
 [delta "interactive"]
-	keep-plus-minus-markers = false
+  keep-plus-minus-markers = false
 
 [delta "decorations"]
-	commit-decoration-style = blue ol
-	commit-style = raw
-	file-style = omit
-	hunk-header-decoration-style = blue box
-	hunk-header-file-style = red
-	hunk-header-line-number-style = "#067a00"
-	hunk-header-style = file line-number syntax
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = red
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
 
 [diff]
-	tool = nvim
+  tool = nvim
 
 [difftool "nvim"]
-	cmd = nvim -d $LOCAL $REMOTE
-
-[clangformat]
-	binary = /bin/echo
-	style = file
+  cmd = nvim -d $LOCAL $REMOTE
 
 [pull]
-	rebase = true
+  rebase = true
 
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
 
 [rebase]
-	autosquash = true
+  autosquash = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[init]
+  defaultBranch = main
+[push]
+  autoSetupRemote = true
