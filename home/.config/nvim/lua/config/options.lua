@@ -3,6 +3,9 @@
 -- Add any additional options here
 vim.g.autoformat = false
 
+-- LazyVim enables spelling for prose-oriented filetypes; check Polish as well.
+vim.opt.spelllang = { 'en', 'pl' }
+
 vim.g.clipboard = {
   name = 'win32yank-wsl',
   copy = {
@@ -15,7 +18,6 @@ vim.g.clipboard = {
   },
   cache_enabled = true,
 }
-
 vim.filetype.add({
   filename = {
     ["SConstruct"] = "python",
