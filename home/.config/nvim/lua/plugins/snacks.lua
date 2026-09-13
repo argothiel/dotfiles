@@ -8,6 +8,7 @@ return {
   {
     'folke/snacks.nvim',
     opts = {
+      bigfile = { enabled = false },
       notifier = { enabled = false },
     },
   },

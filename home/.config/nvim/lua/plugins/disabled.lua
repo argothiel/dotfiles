@@ -1,6 +1,7 @@
 return {
   -- disable trouble
   { "akinsho/bufferline.nvim", enabled = false },
-  { "echasnovski/mini.pairs", enabled = false },
+  { "nvim-mini/mini.pairs", enabled = false },
   { "folke/noice.nvim", enabled = false },
+  { "saghen/blink.cmp", enabled = false },
 }

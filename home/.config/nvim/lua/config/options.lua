@@ -16,3 +16,9 @@ vim.g.clipboard = {
   cache_enabled = true,
 }
 
+vim.filetype.add({
+  filename = {
+    ["SConstruct"] = "python",
+    ["SConscript"] = "python",
+  },
+})
